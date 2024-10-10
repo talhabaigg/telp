@@ -27,6 +27,7 @@ xcuserdata/
 # Package
 /.verdaccio/build/local-registry
 vendor/
+!resources/views/vendor/
 node_modules/
 .Python/
 /.vagrant/
@@ -94,3 +95,4 @@ CHANGELOG.md
 .gitignore.backup
 .editorconfig.backup
 .styleci.yml.backup
+hot
