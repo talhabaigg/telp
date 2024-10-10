@@ -8,7 +8,8 @@
     "require": {
 
         "php": "^8.2",
-        "laravel/framework": "^11.9"
+        "laravel/framework": "^11.9",
+        "laravel/octane": "^2.5"
     },
 
     "require-dev": {
@@ -66,13 +67,13 @@
 
         "start": [
 
-            "nohup bash -c 'npm run development & php artisan serve & php artisan queue:work & php artisan schedule:work' > ./storage/logs/run.log 2>&1 &"
+            "nohup bash -c 'npm run development & php artisan octane:start --watch & php artisan queue:work & php artisan schedule:work' > ./storage/logs/run.log 2>&1 &"
         ],
 
         "stop": [
 
             "pkill -f 'npm run development' || true",
-            "pkill -f 'php artisan serve' || true",
+            "pkill -f 'php artisan octane:start --watch' || true",
             "pkill -f 'php artisan queue:work' || true",
             "pkill -f 'php artisan schedule:work' || true"
         ],

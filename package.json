@@ -13,6 +13,7 @@
 
     "devDependencies": {
 
+        "chokidar": "^4.0.1",
         "vite": "^5.0",
         "laravel-vite-plugin": "^1.0"
     }
