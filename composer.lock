@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a03a125371082fadacacba76a1ab7dab",
+    "content-hash": "5abbf79f9beddd7748f57d991ad75287",
     "packages": [
         {
             "name": "brick/math",
@@ -7045,6 +7045,60 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
             },
             "time": "2023-12-08T13:03:43+00:00"
+        },
+        {
+            "name": "tripteki/laravelphp-adminer",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tripteki/laravelphp-adminer.git",
+                "reference": "c2a9620c7ec1d5d76f791abd69d294bfdd631872"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tripteki/laravelphp-adminer/zipball/c2a9620c7ec1d5d76f791abd69d294bfdd631872",
+                "reference": "c2a9620c7ec1d5d76f791abd69d294bfdd631872",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0.2"
+            },
+            "suggest": {
+                "laravel/framework": "Required when using laravel framework (^9.0).",
+                "laravel/lumen-framework": "Required when using lumen framework (^9.0)."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "dont-discover": [],
+                    "providers": [
+                        "Tripteki\\Adminer\\Providers\\AdminerServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tripteki\\Adminer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Trip Teknologi",
+                    "email": "tripteki.company@gmail.com"
+                }
+            ],
+            "description": "Trip Teknologi's Laravel.php Adminer",
+            "homepage": "https://github.com/tripteki/laravelphp-adminer",
+            "support": {
+                "issues": "https://github.com/tripteki/laravelphp-adminer/issues",
+                "source": "https://github.com/tripteki/laravelphp-adminer/tree/1.0.0"
+            },
+            "time": "2023-11-28T02:05:58+00:00"
         },
         {
             "name": "tripteki/laravelphp-docs",

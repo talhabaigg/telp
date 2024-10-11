@@ -12,7 +12,8 @@
         "laravel/octane": "^2.5",
         "laravel/reverb": "^1.0",
         "laravel/pulse": "^1.2",
-        "tripteki/laravelphp-docs": "^1.0"
+        "tripteki/laravelphp-docs": "^1.0",
+        "tripteki/laravelphp-adminer": "^1.0"
     },
 
     "require-dev": {
