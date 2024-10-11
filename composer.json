@@ -14,7 +14,8 @@
         "laravel/pulse": "^1.2",
         "tripteki/laravelphp-docs": "^1.0",
         "tripteki/laravelphp-adminer": "^1.0",
-        "tripteki/laravelphp-setting": "^1.0"
+        "tripteki/laravelphp-setting": "^1.0",
+        "tripteki/laravelphp-setting-profile": "^1.1"
     },
 
     "require-dev": {
