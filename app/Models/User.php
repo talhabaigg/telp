@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Tripteki\Setting\Traits\SettingTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -10,7 +11,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 
 class User extends Authenticatable implements AuthenticatableContract, AuthorizableContract
 {
-    use Authorizable, HasFactory;
+    use Authorizable, HasFactory, SettingTrait;
 
     /**
      * The attributes that are mass assignable.
