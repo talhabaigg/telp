@@ -16,7 +16,8 @@
         "tripteki/laravelphp-adminer": "^1.0",
         "tripteki/laravelphp-setting": "^1.0",
         "tripteki/laravelphp-setting-profile": "^1.1",
-        "tripteki/laravelphp-log": "^1.1"
+        "tripteki/laravelphp-log": "^1.1",
+        "tripteki/laravelphp-acl": "^2.0"
     },
 
     "require-dev": {

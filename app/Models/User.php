@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Tripteki\ACL\Traits\RolePermissionTrait;
 use Tripteki\Log\Traits\LogCauseTrait;
 use Tripteki\SettingProfile\Traits\ProfileTrait;
 use Tripteki\Setting\Traits\SettingTrait;
@@ -13,7 +14,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 
 class User extends Authenticatable implements AuthenticatableContract, AuthorizableContract
 {
-    use Authorizable, HasFactory, SettingTrait, ProfileTrait, LogCauseTrait;
+    use Authorizable, HasFactory, SettingTrait, ProfileTrait, LogCauseTrait, RolePermissionTrait;
 
     /**
      * The attributes that are mass assignable.
