@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Tripteki\Log\Traits\LogCauseTrait;
 use Tripteki\SettingProfile\Traits\ProfileTrait;
 use Tripteki\Setting\Traits\SettingTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,7 +13,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 
 class User extends Authenticatable implements AuthenticatableContract, AuthorizableContract
 {
-    use Authorizable, HasFactory, SettingTrait, ProfileTrait;
+    use Authorizable, HasFactory, SettingTrait, ProfileTrait, LogCauseTrait;
 
     /**
      * The attributes that are mass assignable.
