@@ -25,5 +25,9 @@ return Application::configure(basePath: dirname(__DIR__))
 })
 ->withExceptions(function (Exceptions $exceptions) {
 
-    //
+    $exceptions->report(function (\Src\V0\Auth\Exceptions\AuthTokenHandler $thrower) {
+
+        //
+    });
+
 })->create();

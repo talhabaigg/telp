@@ -18,7 +18,8 @@
         "tripteki/laravelphp-setting-profile": "^1.1",
         "tripteki/laravelphp-log": "^1.1",
         "tripteki/laravelphp-acl": "^2.0",
-        "tripteki/laravelphp-user": "^1.1"
+        "tripteki/laravelphp-user": "^1.1",
+        "tymon/jwt-auth": "^2.1"
     },
 
     "require-dev": {

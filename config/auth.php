@@ -16,11 +16,11 @@ return [
 
     "guards" => [
 
-        // "api" => [
+        "api" => [
 
-            // "driver" => "jwt",
-            // "provider" => "users_eloquent",
-        // ],
+            "driver" => "jwt",
+            "provider" => "users_eloquent",
+        ],
 
         "web" => [
 
