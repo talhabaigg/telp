@@ -11,6 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
     web: __DIR__."/../routes/web.php",
     health: "/status",
 )
+->withCommands([
+
+    \Src\V0\User\Console\Commands\GenerateUserCommand::class,
+])
 ->withMiddleware(function (Middleware $middleware) {
 
     //
