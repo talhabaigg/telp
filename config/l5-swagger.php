@@ -4,7 +4,7 @@ return [
 
     "default" => env("SWAGGER", "default"),
 
-    "documentations" => env("IS_SWAGGER", true) ? [
+    "documentations" => env("IS_SWAGGER", false) ? [
 
         "default" => [
 
@@ -36,7 +36,7 @@ return [
 
     "defaults" => [
 
-        "generate_always" => env("SWAGGER_AUTO_GENERATE", true),
+        "generate_always" => env("SWAGGER_AUTO_GENERATE", false),
         "generate_yaml_copy" => false,
         "proxy" => false,
         "additional_config_url" => null,
