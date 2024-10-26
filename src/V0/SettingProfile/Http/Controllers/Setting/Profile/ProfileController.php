@@ -90,7 +90,7 @@ class ProfileController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Settings\Profiles\ProfileUpdateValidation $request
+     * @param \Src\V0\SettingProfile\Http\Requests\Settings\Profiles\ProfileUpdateValidation $request
      * @param string $variable
      * @return \Illuminate\Http\JsonResponse
      */

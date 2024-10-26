@@ -68,7 +68,7 @@ class RegisteredUserController extends BaseController
      *
      * Handle an incoming registration.
      *
-     * @param \App\Http\Requests\API\Auth\RegistrationStoreValidation $request
+     * @param \Src\V0\Auth\Http\Requests\API\Auth\RegistrationStoreValidation $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function store(RegistrationStoreValidation $request): Response|JsonResponse|RedirectResponse

@@ -65,7 +65,7 @@ class AuthenticatedController extends BaseController
      *
      * Handle an incoming auth.
      *
-     * @param \App\Http\Requests\API\Auth\LoginValidation $request
+     * @param \Src\V0\Auth\Http\Requests\API\Auth\LoginValidation $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function store(LoginValidation $request): Response|JsonResponse|RedirectResponse
@@ -98,7 +98,7 @@ class AuthenticatedController extends BaseController
      *
      * Destroy an authed session.
      *
-     * @param \App\Http\Requests\API\Auth\LogoutValidation $request
+     * @param \Src\V0\Auth\Http\Requests\API\Auth\LogoutValidation $request
      * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function destroy(LogoutValidation $request): Response|JsonResponse|RedirectResponse

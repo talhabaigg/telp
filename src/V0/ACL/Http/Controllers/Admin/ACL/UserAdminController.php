@@ -47,7 +47,7 @@ class UserAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\Users\UserShowValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\Users\UserShowValidation $request
      * @param string $user
      * @return \Illuminate\Http\JsonResponse
      */

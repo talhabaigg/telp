@@ -102,7 +102,7 @@ class ProfileAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Settings\Profiles\ProfileShowValidation $request
+     * @param \Src\V0\SettingProfile\Http\Requests\Admin\Settings\Profiles\ProfileShowValidation $request
      * @param string $variable
      * @return \Illuminate\Http\JsonResponse
      */
@@ -149,7 +149,7 @@ class ProfileAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Settings\Profiles\ProfileStoreValidation $request
+     * @param \Src\V0\SettingProfile\Http\Requests\Admin\Settings\Profiles\ProfileStoreValidation $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(ProfileStoreValidation $request)
@@ -205,7 +205,7 @@ class ProfileAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Settings\Profiles\ProfileUpdateValidation $request
+     * @param \Src\V0\SettingProfile\Http\Requests\Admin\Settings\Profiles\ProfileUpdateValidation $request
      * @param string $variable
      * @return \Illuminate\Http\JsonResponse
      */
@@ -250,7 +250,7 @@ class ProfileAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Settings\Profiles\ProfileDestroyValidation $request
+     * @param \Src\V0\SettingProfile\Http\Requests\Admin\Settings\Profiles\ProfileDestroyValidation $request
      * @param string $variable
      * @return \Illuminate\Http\JsonResponse
      */

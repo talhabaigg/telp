@@ -103,7 +103,7 @@ class NotificationController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Notifications\NotificationUpdateValidation $request
+     * @param \Src\V0\Notification\Http\Requests\Notifications\NotificationUpdateValidation $request
      * @param string|null $notification
      * @return \Illuminate\Http\JsonResponse
      */
@@ -154,7 +154,7 @@ class NotificationController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Notifications\NotificationDestroyValidation $request
+     * @param \Src\V0\Notification\Http\Requests\Notifications\NotificationDestroyValidation $request
      * @param string|null $notification
      * @return \Illuminate\Http\JsonResponse
      */

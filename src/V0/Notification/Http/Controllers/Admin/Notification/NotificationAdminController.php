@@ -97,7 +97,7 @@ class NotificationAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Notifications\NotificationShowValidation $request
+     * @param \Src\V0\Notification\Http\Requests\Admin\Notifications\NotificationShowValidation $request
      * @param string $notification
      * @return \Illuminate\Http\JsonResponse
      */

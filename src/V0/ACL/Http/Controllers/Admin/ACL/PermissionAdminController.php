@@ -101,7 +101,7 @@ class PermissionAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\Permissions\PermissionShowValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\Permissions\PermissionShowValidation $request
      * @param string $permission
      * @return \Illuminate\Http\JsonResponse
      */
@@ -143,7 +143,7 @@ class PermissionAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\Permissions\PermissionStoreValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\Permissions\PermissionStoreValidation $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(PermissionStoreValidation $request)
@@ -187,7 +187,7 @@ class PermissionAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\Permissions\PermissionDestroyValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\Permissions\PermissionDestroyValidation $request
      * @param string $permission
      * @return \Illuminate\Http\JsonResponse
      */

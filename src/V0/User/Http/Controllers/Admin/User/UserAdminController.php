@@ -102,7 +102,7 @@ class UserAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Users\UserShowValidation $request
+     * @param \Src\V0\User\Http\Requests\Admin\Users\UserShowValidation $request
      * @param string $identifier
      * @return \Illuminate\Http\JsonResponse
      */
@@ -159,7 +159,7 @@ class UserAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Users\UserStoreValidation $request
+     * @param \Src\V0\User\Http\Requests\Admin\Users\UserStoreValidation $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(UserStoreValidation $request)
@@ -225,7 +225,7 @@ class UserAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Users\UserUpdateValidation $request
+     * @param \Src\V0\User\Http\Requests\Admin\Users\UserUpdateValidation $request
      * @param string $identifier
      * @return \Illuminate\Http\JsonResponse
      */
@@ -275,7 +275,7 @@ class UserAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Users\UserDestroyValidation $request
+     * @param \Src\V0\User\Http\Requests\Admin\Users\UserDestroyValidation $request
      * @param string $identifier
      * @return \Illuminate\Http\JsonResponse
      */

@@ -101,7 +101,7 @@ class RoleAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\Roles\RoleShowValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\Roles\RoleShowValidation $request
      * @param string $role
      * @return \Illuminate\Http\JsonResponse
      */
@@ -143,7 +143,7 @@ class RoleAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\Roles\RoleStoreValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\Roles\RoleStoreValidation $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(RoleStoreValidation $request)
@@ -187,7 +187,7 @@ class RoleAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\Roles\RoleDestroyValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\Roles\RoleDestroyValidation $request
      * @param string $role
      * @return \Illuminate\Http\JsonResponse
      */

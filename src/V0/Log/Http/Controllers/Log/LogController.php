@@ -106,7 +106,7 @@ class LogController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Logs\LogShowValidation $request
+     * @param \Src\V0\Log\Http\Requests\Logs\LogShowValidation $request
      * @param string $log
      * @return \Illuminate\Http\JsonResponse
      */
@@ -163,7 +163,7 @@ class LogController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Logs\LogUpdateValidation $request
+     * @param \Src\V0\Log\Http\Requests\Logs\LogUpdateValidation $request
      * @param string $context
      * @return \Illuminate\Http\JsonResponse
      */

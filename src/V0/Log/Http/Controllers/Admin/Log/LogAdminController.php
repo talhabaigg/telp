@@ -97,7 +97,7 @@ class LogAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\Logs\LogShowValidation $request
+     * @param \Src\V0\Log\Http\Requests\Admin\Logs\LogShowValidation $request
      * @param string $log
      * @return \Illuminate\Http\JsonResponse
      */

@@ -80,7 +80,7 @@ class ACLAdminController extends BaseController
      *      )
      * )
      *
-     * @param \App\Http\Requests\Admin\ACLs\ACLValidation $request
+     * @param \Src\V0\ACL\Http\Requests\Admin\ACLs\ACLValidation $request
      * @param string $context
      * @param string $object
      * @return \Illuminate\Http\JsonResponse
