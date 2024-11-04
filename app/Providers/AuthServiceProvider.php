@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         Gate::define("viewPulse", function (User $user) {
 
-            return $user->hasRole(\Tripteki\ACL\Providers\ACLServiceProvider::$SUPERADMIN);
+            return false;
         });
     }
 }

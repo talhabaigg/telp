@@ -2,13 +2,9 @@
 
 namespace App\Models;
 
-use Tripteki\Uid\Traits\UniqueIdTrait;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Tripteki\ACL\Traits\RolePermissionTrait;
-use Tripteki\Log\Traits\LogCauseTrait;
-use Tripteki\SettingProfile\Traits\ProfileTrait;
-use Tripteki\Setting\Traits\SettingTrait;
 use Tymon\JWTAuth\Contracts\JWTSubject as IAuthJWT;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -22,7 +18,13 @@ use Illuminate\Notifications\Notifiable as NotifiableTrait;
 
 class User extends Authenticatable implements IAuthJWT, AuthenticatableContract, AuthorizableContract, VerifyableContract, ResetableContract
 {
-    use AuthorizableTrait, MustVerifyEmailTrait, CanResetPasswordTrait, NotifiableTrait, UniqueIdTrait, SoftDeletes, HasFactory, SettingTrait, ProfileTrait, LogCauseTrait, RolePermissionTrait;
+    use AuthorizableTrait,
+        MustVerifyEmailTrait,
+        CanResetPasswordTrait,
+        NotifiableTrait,
+        HasUlids,
+        SoftDeletes,
+        HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -48,9 +50,9 @@ class User extends Authenticatable implements IAuthJWT, AuthenticatableContract,
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * @return array
      */
-    protected function casts(): array
+    protected function casts()
     {
         return [
 
@@ -72,6 +74,9 @@ class User extends Authenticatable implements IAuthJWT, AuthenticatableContract,
      */
     public function getJWTCustomClaims()
     {
-        return (array) null;
+        return [
+
+            //
+        ];
     }
 }
