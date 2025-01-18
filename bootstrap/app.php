@@ -21,6 +21,11 @@ return Application::configure(basePath: dirname(__DIR__))
 )
 ->withMiddleware(function (Middleware $middleware) {
 
+    $middleware->web(append: [
+
+        \App\Http\Middleware\HandleInertiaRequestsResponses::class,
+    ]);
+
     $middleware->group("api", [
 
         "throttle:api",

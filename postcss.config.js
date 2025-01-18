@@ -6,12 +6,12 @@ export default {
 
         "tailwindcss/nesting": "postcss-nesting",
 
-        tailwindcss: {
+        autoprefixer: {
 
             //
         },
 
-        autoprefixer: {
+        tailwindcss: {
 
             //
         },
