@@ -4,6 +4,7 @@ import "./echo";
 import "flowbite";
 import { createApp, h, } from "vue";
 import { createInertiaApp, } from "@inertiajs/vue3";
+import { createI18n, } from "vue-i18n";
 
 createInertiaApp (
 {
@@ -21,6 +22,11 @@ createInertiaApp (
             ),
         }).
         use (plugin).
+        use (createI18n ({
+            locale: props.initialPage.props.lang,
+            fallbackLocale: props.initialPage.props.fallbackLang,
+            messages: LARAVEL_TRANSLATIONS,
+        })).
         mount (el);
     },
 });

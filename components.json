@@ -18,6 +18,7 @@
     "aliases": {
 
         "utils": "@/Libraries/utils",
+        "composables": "@/Composables",
         "components": "@/Components"
     }
 }

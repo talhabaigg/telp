@@ -10,7 +10,12 @@
         "component": "npx shadcn-vue@latest add"
     },
 
-    "dependencies": {},
+    "dependencies": {
+
+        "ziggy-js": "^2.4.2",
+        "vite-plugin-laravel-translations": "^0.2.5",
+        "vue-i18n": "^10.0.5"
+    },
 
     "devDependencies": {
 

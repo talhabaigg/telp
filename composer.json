@@ -20,7 +20,8 @@
         "tymon/jwt-auth": "^2.1",
         "filament/filament": "^3.2",
         "bezhansalleh/filament-language-switch": "^3.1",
-        "inertiajs/inertia-laravel": "^2.0"
+        "inertiajs/inertia-laravel": "^2.0",
+        "tightenco/ziggy": "^2.4"
     },
 
     "require-dev": {

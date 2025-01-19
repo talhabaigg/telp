@@ -3,6 +3,7 @@
 import { defineConfig, } from "vite";
 import laravel from "laravel-vite-plugin";
 import vue from "@vitejs/plugin-vue";
+import i18n from "vite-plugin-laravel-translations";
 
 export default defineConfig ({
 
@@ -30,6 +31,12 @@ export default defineConfig ({
                     includeAbsolute: false,
                 },
             },
+        }),
+
+        i18n ({
+
+            namespace: false,
+            includeJson: false,
         }),
     ],
 });

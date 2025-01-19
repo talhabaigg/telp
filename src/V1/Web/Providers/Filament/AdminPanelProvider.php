@@ -65,7 +65,7 @@ class AdminPanelProvider extends PanelProvider
         ])
         ->renderHook(
             PanelsRenderHook::FOOTER,
-            fn (): View => view("vendor.filament.footer")
+            fn () => view("vendor.filament.footer")
         )
         ->pages([
 
