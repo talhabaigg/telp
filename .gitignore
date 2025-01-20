@@ -41,6 +41,7 @@ node_modules/
 .expo-shared/
 .bundle/
 .config/
+bootstrap/ssr/
 out/
 dist/
 sdist/

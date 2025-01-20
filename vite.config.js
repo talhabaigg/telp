@@ -11,6 +11,8 @@ export default defineConfig ({
 
         laravel ({
 
+            ssr: "resources/js/app.ssr.js",
+
             input: [
 
                 "resources/js/app.js",

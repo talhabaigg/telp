@@ -79,12 +79,13 @@
 
         "start": [
 
-            "nohup bash -c 'npm run development & php artisan octane:start --watch & php artisan reverb:start --debug & php artisan queue:work & php artisan schedule:work' > ./storage/logs/run.log 2>&1 &"
+            "nohup bash -c 'npm run development & php artisan inertia:start-ssr & php artisan octane:start --watch & php artisan reverb:start --debug & php artisan queue:work & php artisan schedule:work' > ./storage/logs/run.log 2>&1 &"
         ],
 
         "stop": [
 
             "pkill -f 'npm run development' || true",
+            "pkill -f 'php artisan inertia:start-ssr' || true",
             "pkill -f 'php artisan octane:start --watch' || true",
             "pkill -f 'php artisan reverb:start --debug' || true",
             "pkill -f 'php artisan queue:work' || true",

@@ -2,7 +2,7 @@
 
 import "./echo";
 import "flowbite";
-import { createApp, h, } from "vue";
+import { createSSRApp, h, } from "vue";
 import { createInertiaApp, } from "@inertiajs/vue3";
 import { createI18n, } from "vue-i18n";
 
@@ -16,7 +16,7 @@ createInertiaApp (
 
     setup ({ el, App, props, plugin, })
     {
-        createApp ({
+        createSSRApp ({
             render: () => h (
                 App, props
             ),
