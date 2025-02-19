@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 
-Route::middleware([ "auth:api", "verified", ])->group(function () {
+Route::middleware([ "auth:api", "verified", ])->group(function (): void {
 
     /**
      * Users.

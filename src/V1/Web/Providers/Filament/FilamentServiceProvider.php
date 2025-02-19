@@ -20,7 +20,7 @@ class FilamentServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
+        LanguageSwitch::configureUsing(function (LanguageSwitch $switch): void {
 
             $switch->
                 visible(outsidePanels: true)->

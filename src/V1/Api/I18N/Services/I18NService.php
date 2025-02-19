@@ -25,7 +25,7 @@ class I18NService extends BaseService
      */
     public function availableLangs(): array
     {
-        return array_map(fn ($directory) => basename($directory), File::directories(lang_path()));
+        return array_map(fn ($directory): string => basename($directory), File::directories(lang_path()));
     }
 
     /**

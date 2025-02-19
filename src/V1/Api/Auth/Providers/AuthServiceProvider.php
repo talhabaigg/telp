@@ -42,7 +42,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $exceptionHandler = resolve(ExceptionHandler::class);
 
-        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\TokenInvalidException $exception, Request $request) {
+        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\TokenInvalidException $exception, Request $request): JsonResponse {
             if ($request->wantsJson() || $request->is("api/*")) {
                 return response()->json([
                     "message" => __("auth.token_invalid"),
@@ -50,7 +50,7 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\TokenExpiredException $exception, Request $request) {
+        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\TokenExpiredException $exception, Request $request): JsonResponse {
             if ($request->wantsJson() || $request->is("api/*")) {
                 return response()->json([
                     "message" => __("auth.token_expired"),
@@ -58,7 +58,7 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\TokenBlacklistedException $exception, Request $request) {
+        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\TokenBlacklistedException $exception, Request $request): JsonResponse {
             if ($request->wantsJson() || $request->is("api/*")) {
                 return response()->json([
                     "message" => __("auth.token_blacklisted"),
@@ -66,7 +66,7 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $exception, Request $request) {
+        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $exception, Request $request): JsonResponse {
             if ($request->wantsJson() || $request->is("api/*")) {
                 return response()->json([
                     "message" => __("auth.user_not_defined"),
@@ -74,7 +74,7 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\InvalidClaimException $exception, Request $request) {
+        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\InvalidClaimException $exception, Request $request): JsonResponse {
             if ($request->wantsJson() || $request->is("api/*")) {
                 return response()->json([
                     "message" => __("auth.invalid_claim"),
@@ -82,7 +82,7 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\PayloadException $exception, Request $request) {
+        $exceptionHandler->renderable(function (\Tymon\JWTAuth\Exceptions\PayloadException $exception, Request $request): JsonResponse {
             if ($request->wantsJson() || $request->is("api/*")) {
                 return response()->json([
                     "message" => __("auth.payload_invalid"),
@@ -96,7 +96,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected function registerRoutes(): void
     {
-        ResetPassword::createUrlUsing(function ($notifiable, $token) {
+        ResetPassword::createUrlUsing(function ($notifiable, $token): string {
 
             return config("app.frontend_url")."/reset-password/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
