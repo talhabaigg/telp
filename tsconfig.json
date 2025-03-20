@@ -1,0 +1,50 @@
+{
+    "compilerOptions": {
+
+        "target": "ESNext",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "incremental": true,
+
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+
+        "typeRoots": [
+
+            "./resources/js/Types",
+            "./node_modules/@types"
+        ],
+
+        "paths": {
+
+            "@/*": ["./resources/js/*"],
+            "ui": ["./resources/js/Components/ui/index.ts"],
+            "ziggy-js": ["./vendor/tightenco/ziggy"]
+        }
+    },
+
+    "include": [
+
+        "resources/js/**/*.js",
+        "resources/js/**/*.ts",
+        "resources/js/**/*.tsx"
+    ],
+
+    "exclude": [
+
+        "node_modules"
+    ]
+}
