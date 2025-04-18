@@ -6,8 +6,9 @@ use App\Models\User;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Attributes\Computed;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 
 class AuthLoginDto extends Data
 {
@@ -38,14 +39,6 @@ class AuthLoginDto extends Data
     }
 
     /**
-     * @return bool
-     */
-    public static function authorize(): bool
-    {
-        return true;
-    }
-
-    /**
      * @param \Spatie\LaravelData\Support\Validation\ValidationContext $context
      * @return array
      */
@@ -65,5 +58,13 @@ class AuthLoginDto extends Data
                 "string",
             ],
         ];
+    }
+
+    /**
+     * @return bool
+     */
+    public static function authorize(): bool
+    {
+        return true;
     }
 }

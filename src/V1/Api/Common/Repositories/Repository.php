@@ -3,8 +3,11 @@
 namespace Src\V1\Api\Common\Repositories;
 
 use Tripteki\RequestResponseQuery\QueryBuilder;
+use Tripteki\RequestResponseQuery\AllowedSort;
+use Tripteki\RequestResponseQuery\AllowedFilter;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
@@ -37,29 +40,52 @@ abstract class Repository
      * @param callable $callback
      * @param array $sortables
      * @param array $filterables
+     * @param array $defaultSorts
+     * @param array $defaultFilters
      * @return mixed
      */
     public function accessAll(
         callable $callback,
         $sortables = [],
-        $filterables = []
+        $filterables = [],
+        $defaultSorts = [],
+        $defaultFilters = []
     )
     {
-        $content = QueryBuilder::for($callback ())->
-        allowedSorts($sortables)->
-        allowedFilters($filterables)->
-        paginate()->appends(request()->query());
+        $content = QueryBuilder::for($callback ());
+
+        if (! empty($sortables)) {
+            $content = $content->allowedSorts($sortables);
+        }
+
+        if (! empty($defaultSorts)) {
+            $content = $content->defaultSort($defaultSorts);
+        }
+
+        if (! empty($filterables)) {
+            if (! empty($defaultFilters)) {
+                $content = $content->allowedFilters(
+                    array_map(function (string $key) use ($defaultFilters): AllowedFilter {
+                        $default = $defaultFilters[$key] ?? null; return $default !== null ? AllowedFilter::scope($key)->default($default) : AllowedFilter::scope($key);
+                    }, $filterables)
+                );
+            } else {
+                $content = $content->allowedFilters($filterables);
+            }
+        }
+
+        $content = $content->paginate()->appends(request()->query());
 
         return $content;
     }
 
     /**
      * @param callable $callback
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return \Illuminate\Database\Eloquent\Model|Illuminate\Database\Eloquent\Collection|null
      */
     public function accessGet(
         callable $callback
-    ): ?Model
+    ): Model|Collection|null
     {
         $content = $callback ();
 
@@ -68,11 +94,11 @@ abstract class Repository
 
     /**
      * @param callable $callback
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return \Illuminate\Database\Eloquent\Model|Illuminate\Database\Eloquent\Collection|null
      */
     public function mutateUpdate(
         callable $callback
-    ): ?Model
+    ): Model|Collection|null
     {
         $content = null;
 
@@ -96,11 +122,11 @@ abstract class Repository
 
     /**
      * @param callable $callback
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return \Illuminate\Database\Eloquent\Model|Illuminate\Database\Eloquent\Collection|null
      */
     public function mutateCreate(
         callable $callback
-    ): ?Model
+    ): Model|Collection|null
     {
         $content = null;
 
@@ -124,11 +150,11 @@ abstract class Repository
 
     /**
      * @param callable $callback
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return \Illuminate\Database\Eloquent\Model|Illuminate\Database\Eloquent\Collection|null
      */
     public function mutateDelete(
         callable $callback
-    ): ?Model
+    ): Model|Collection|null
     {
         $content = null;
 

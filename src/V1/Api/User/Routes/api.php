@@ -11,9 +11,5 @@ Route::middleware([ "auth:api", "verified", ])->group(function (): void {
     /**
      * Users.
      */
-    Route::get("v1/users", [ UserController::class, "index", ]);
     Route::get("v1/users/me", [ UserController::class, "show", ]);
-    Route::match([ "put", "patch", ], "v1/users", [ UserController::class, "update", ]);
-    Route::post("v1/users", [ UserController::class, "store", ]);
-    Route::delete("v1/users", [ UserController::class, "destroy", ]);
 });

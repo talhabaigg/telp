@@ -12,32 +12,32 @@ class UserRepository extends BaseRepository
      */
     public function all(): \Illuminate\Pagination\LengthAwarePaginator
     {
-        $query = User::where("id", $this->getUser()->getKey());
+        $model = $this->getUser();
 
         return parent::accessAll(
-            fn () => $query,
+            fn () => $model,
             sortables: [ "id", "name", "email", "created_at", "updated_at", "deleted_at", ],
             filterables: [ "id", "name", "email", "created_at", "updated_at", "deleted_at", ]
         );
     }
 
     /**
-     * @return \App\Models\User
+     * @return \App\Models\User|null
      */
-    public function get(): User
+    public function get(): ?User
     {
-        $query = User::where("id", $this->getUser()->getKey());
+        $model = $this->getUser();
 
         return parent::accessGet(
-            fn () => $query->firstOrFail()
+            fn () => $model ?? null
         );
     }
 
     /**
      * @param \App\Models\User $userData
-     * @return \App\Models\User
+     * @return \App\Models\User|null
      */
-    public function update(array $userData): User
+    public function update(array $userData): ?User
     {
         $model = $this->get();
 
@@ -48,9 +48,9 @@ class UserRepository extends BaseRepository
 
     /**
      * @param \App\Models\User $userData
-     * @return \App\Models\User
+     * @return \App\Models\User|null
      */
-    public function create(array $userData): User
+    public function create(array $userData): ?User
     {
         return parent::mutateCreate(
             fn () => User::create($userData) ?? null
@@ -58,11 +58,11 @@ class UserRepository extends BaseRepository
     }
 
     /**
-     * @return \App\Models\User
+     * @return \App\Models\User|null
      */
-    public function restore(): User
+    public function restore(): ?User
     {
-        $model = User::deactivated()->where("id", $this->getUser()->getKey())->firstOrFail();
+        $model = User::deactivated()->findOrFail($this->getUser()->getKey());
 
         return parent::mutateDelete(
             fn () => $model->restore() ? $model : null
@@ -70,11 +70,11 @@ class UserRepository extends BaseRepository
     }
 
     /**
-     * @return \App\Models\User
+     * @return \App\Models\User|null
      */
-    public function delete(): User
+    public function delete(): ?User
     {
-        $model = $this->get();
+        $model = User::activated()->findOrFail($this->getUser()->getKey());
 
         return parent::mutateDelete(
             fn () => $model->delete() ? $model : null

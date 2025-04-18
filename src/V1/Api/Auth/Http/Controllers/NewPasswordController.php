@@ -53,7 +53,7 @@ class NewPasswordController extends BaseController
      *      ),
      *      @OA\Response(
      *          response=422,
-     *          description="Unprocessable Entity."
+     *          description="Validation Error."
      *      )
      * )
      *

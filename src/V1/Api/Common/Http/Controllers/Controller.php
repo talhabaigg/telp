@@ -4,8 +4,9 @@ namespace Src\V1\Api\Common\Http\Controllers;
 
 /**
  * @OA\Info(
- *      title="Application",
- *      version="1.0"
+ *      title="Tripteki",
+ *      description="Trip Teknologi Documentation",
+ *      version="1.0.0"
  * ),
  * @OA\SecurityScheme(
  *      securityScheme="bearerAuth",

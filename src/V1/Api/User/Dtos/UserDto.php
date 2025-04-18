@@ -7,8 +7,9 @@ use Src\V1\Web\Filament\Resources\UserResource\Forms\UserForm;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Attributes\Computed;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
 class UserDto extends Data
@@ -50,21 +51,6 @@ class UserDto extends Data
     }
 
     /**
-     * @return bool
-     */
-    public static function authorize(): bool
-    {
-        $user = Auth::user();
-
-        if ($user) {
-
-            return $user->can("update", User::class);
-        }
-
-        return true;
-    }
-
-    /**
      * @param \Spatie\LaravelData\Support\Validation\ValidationContext $context
      * @return array
      */
@@ -82,5 +68,20 @@ class UserDto extends Data
         if (@$context->payload["password_confirmation"]) $validation["password_confirmation"] = UserForm::validation("password_confirmation");
 
         return $validation;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function authorize(): bool
+    {
+        $user = Auth::user();
+
+        if ($user) {
+
+            return $user->can("update", User::class);
+        }
+
+        return true;
     }
 }

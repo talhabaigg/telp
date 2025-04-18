@@ -33,7 +33,6 @@ return Application::configure(basePath: dirname(__DIR__))
 
     $middleware->group("api", [
 
-        "throttle:api",
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Src\V1\Api\Common\Http\Middlewares\ApiMiddleware::class,
         \Src\V1\Api\I18N\Http\Middlewares\I18NApiMiddleware::class,
