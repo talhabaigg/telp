@@ -10,5 +10,9 @@ require __DIR__."/../src/V1/Api/I18N/Routes/web.php";
 
 Route::middleware([ "i18n", ])->group(function () {
 
-    Route::get("/", function () { return Inertia::render("index"); });
+    Route::get('/', fn() => Inertia::render('index'))->name('home');
+    Route::get('/portfolio', fn() => Inertia::render('portfolio'))->name('portfolio');
+    Route::get('/career', fn() => Inertia::render('career'))->name('career');
+    Route::get('/contact', fn() => Inertia::render('contact'))->name('contact');
+
 });
