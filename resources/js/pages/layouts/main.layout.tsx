@@ -1,51 +1,45 @@
 import { ThemeProvider } from "@/hooks/useTheme";
 import HeaderLayout from "./header.layout";
 import FooterLayout from "./footer.layout";
-import HeadIcons from "@/components/head-icons";
-import type { ComponentProps, ReactNode } from "react";
+import { getTelpSvg } from "@/components/icon";
+import { Head } from "@inertiajs/react";
+import type { ComponentProps, ReactNode, JSX } from "react";
 
-/**
- * Props for the MainLayout component.
- */
 interface MainLayoutProps {
-    /**
-     * Page content to render between the header and footer.
-     */
-    children: ReactNode;
-
-    /**
-     * Optional props to forward to HeaderLayout.
-     * This keeps MainLayout decoupled while allowing callers to configure sections, etc.
-     */
-    headerProps?: ComponentProps<typeof HeaderLayout>;
+  children: ReactNode;
+  headerProps?: ComponentProps<typeof HeaderLayout>;
 }
 
-/**
- * MainLayout wraps pages with:
- * - Theme provider (light/dark)
- * - Glassy gradient background
- * - Sticky header and footer
- * - Responsive centered content container
- */
+function HeadIcons(): JSX.Element {
+  const svg = encodeURIComponent(getTelpSvg({ withTagline: false, zoom: 2 }));
+  const svgMono = encodeURIComponent(getTelpSvg({ withTagline: false, mono: true, zoom: 2 }));
+
+  return (
+    <Head>
+      <link rel="icon" type="image/svg+xml" href={`data:image/svg+xml;utf8,${svg}`} />
+      <link rel="mask-icon" href={`data:image/svg+xml;utf8,${svgMono}`} color="#5b21b6" />
+      <meta name="theme-color" content="#0b1020" />
+      <meta name="application-name" content="Telp" />
+      <meta
+        name="description"
+        content="Tech solutions for custom enterprise. Build faster. Scale safely. Operate with clarity."
+      />
+    </Head>
+  );
+}
+
 export default function MainLayout({ children, headerProps }: MainLayoutProps): JSX.Element {
-    return (
-        <ThemeProvider>
-            <HeadIcons />
-            <div className="relative min-h-screen flex flex-col pb-28 text-zinc-900 dark:text-white bg-gradient-to-b from-white to-zinc-100 dark:from-[#191925] dark:to-[#18181b] transition-colors">
-                {/* Subtle glass layer */}
-                <div className="absolute inset-0 z-0 pointer-events-none bg-white/40 dark:bg-zinc-900/70 backdrop-blur-xl" />
-
-                {/* Header */}
-                <HeaderLayout {...(headerProps ?? {})} />
-
-                {/* Main content */}
-                <main className="relative z-10 flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12">
-                    {children}
-                </main>
-
-                {/* Footer */}
-                <FooterLayout />
-            </div>
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider>
+      <HeadIcons />
+      <div className="relative min-h-screen flex flex-col pb-28 text-zinc-900 dark:text-white bg-gradient-to-b from-white to-zinc-100 dark:from-[#191925] dark:to-[#18181b] transition-colors">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-white/40 dark:bg-zinc-900/70 backdrop-blur-xl" />
+        <HeaderLayout {...(headerProps ?? {})} />
+        <main className="relative z-10 flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-12">
+          {children}
+        </main>
+        <FooterLayout />
+      </div>
+    </ThemeProvider>
+  );
 }

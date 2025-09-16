@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <link rel="manifest" href="{{ asset('manifest.json') }}" />
-    <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/x-icon" href="{{ Vite::asset('resources/images/apple-touch-icon.png') }}" />
+
     @viteReactRefresh
-    @vite("resources/css/app.css")
-    @vite("resources/js/app.tsx")
+    <link rel="stylesheet" href="{{ asset('js/app.css') }}" />
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.tsx')
     @inertiaHead
 </head>
 
-<body>
+<body class="antialiased">
     @routes
     @inertia
-
-    <script type="text/javascript" src="{{ asset('sw.js') }}"></script>
+    <script src="{{ asset('sw.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 
 </html>

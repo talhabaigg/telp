@@ -19,7 +19,96 @@ import {
   Rocket,
 } from "lucide-react";
 
-// -------------------- DATA -------------------- //
+const COPY = {
+  nav: {
+    about: "About",
+    projects: "Projects",
+    services: "Services",
+    processes: "Processes",
+    clients: "Clients",
+    contact: "Contact",
+    faq: "FAQ",
+  },
+  brandTagline: "Engineering practical software tailored to how your business actually works.",
+  hero: {
+    headline: "We build the tools your business runs on.",
+    tabs: [
+      {
+        label: "Our Profile",
+        text: "TELP helps businesses operate better with custom digital tools, building products that feel polished and purposeful, not generic.",
+      },
+      {
+        label: "Our Vision",
+        text: "Enable modern teams to move smarter, simplify the messy, connect the scattered, and unlock real efficiency.",
+      },
+      {
+        label: "Our Mission",
+        text: "Deliver grounded software that makes sense, tech that fits how people think, work, and grow.",
+      },
+    ],
+    ctaPrimary: "Start a project",
+    ctaSecondary: "See our work",
+    collageCaption1: "Design systems & dashboards",
+    collageCaption2: "Mobile experiences",
+    alt1: "Designers reviewing a component library and dashboard UI in a bright studio",
+    alt2: "Engineer reviewing dashboards and code across multiple screens",
+  },
+  clients: { strapline: "Trusted by 500+ teams and counting" },
+  services: {
+    badge: "Capabilities",
+    title: "What We Do",
+    blurb: "From kickoff to go‑live, we craft useful and resilient products that move the numbers that matter.",
+    explore: "Explore",
+  },
+  work: {
+    title: "Our Work & Expertise",
+    blurb: "Selected projects, fast delivery, neat polish, measurable outcomes.",
+    pitch: "Have something in mind?",
+    pitchCta: "Let’s talk",
+  },
+  metrics: {
+    items: [
+      { label: "Years in Craft", value: 9 },
+      { label: "Clients Served", value: 500 },
+      { label: "Projects Delivered", value: 200 },
+      { label: "Industry Awards", value: 7 },
+    ],
+  },
+  process: {
+    badge: "How we work",
+    title: "Our Process",
+    blurb: "A clear path from idea to impact, tight loops and steady progress.",
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        q: "How long to launch a platform?",
+        a: "MVPs and landing pages can go live within days. Custom systems typically ship in 3–8 weeks with demos each sprint.",
+      },
+      {
+        q: "Can you modernise my legacy app?",
+        a: "Absolutely. We plan and execute upgrades or migrations to a Laravel/React stack, minimising risk and downtime.",
+      },
+      {
+        q: "Is support included after launch?",
+        a: "Yes. Flexible support plans with rapid fixes, iterative improvements, and monthly health checks under a clear SLA/SLO.",
+      },
+      {
+        q: "Do you cover design and branding?",
+        a: "We collaborate with specialists in UI/UX, branding, copy, and illustration to assemble the right team for your goals.",
+      },
+    ],
+  },
+  contact: {
+    title: "Ready to get started?",
+    blurb: "Book a free chat to align on goals, timelines, and the fastest path to value.",
+    emailBtn: "Email Us",
+    backTop: "Back to Top",
+    email: "admin@telp.com.au",
+  },
+};
+
 const logos = [
   "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
   "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
@@ -28,50 +117,28 @@ const logos = [
   "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
 ];
 
-// Optional: short positioning line under the logo
-const SYDNEY_TAGLINE =
-  "Sydney‑based IT solutions partner delivering modern software that scales beautifully.";
+const SYDNEY_TAGLINE = COPY.brandTagline;
 
-const heroTabs = [
-  {
-    label: "Our Profile",
-    text:
-      "TELP.com.au is a Sydney‑based IT solutions partner. We design and ship reliable software that looks sharp and measurably moves the metrics that matter—from dashboards and e‑commerce to native‑feel mobile apps.",
-  },
-  {
-    label: "Our Vision",
-    text:
-      "To be the trusted APAC partner for digital transformation—helping organisations scale, connect, and innovate through purposeful design and modern engineering.",
-  },
-  {
-    label: "Our Mission",
-    text:
-      "Deliver beautifully engineered systems that solve real operational pain, reduce friction, and feel effortless for end‑users—without compromising security or speed.",
-  },
-];
+const heroTabs = COPY.hero.tabs;
 
 const projects = [
   {
-    image:
-      "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=1600&q=80&auto=format&fit=crop", // checkout/loyalty feel
+    image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=1600&q=80&auto=format&fit=crop",
     title: "E‑commerce Loyalty Platform",
-    desc: "A rewards engine for retail: seamless onboarding, automated vouchers, and engagement analytics—built to scale.",
+    desc: "A rewards engine that actually lifts retention. Smooth onboarding, automatic vouchers, and crisp insights.",
     tech: ["Laravel", "React", "MySQL", "Tailwind"],
     rating: 5,
-    review:
-      "TELP exceeded expectations—clear communication, fast delivery, and a best‑in‑class result.",
+    review: "TELP delivered with calm velocity, clean handoffs, clear comms, and a polished result.",
     client: "Nikki Pickering",
     position: "COO | Artesian Hospitality",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80&auto=format&fit=crop", // ops/logistics vibe
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80&auto=format&fit=crop",
     title: "Logistics Management App",
-    desc: "Track, optimise, and report in one place. Operational clarity at scale with a clean, mobile‑first experience.",
+    desc: "Plan, track, and report in one place. Less noise and more flow, built mobile‑first for field teams.",
     tech: ["Laravel", "React Native", "AWS"],
     rating: 5,
-    review:
-      "Weekly demos kept us aligned. Operations are dramatically smoother now.",
+    review: "Weekly demos kept us aligned. Operations are smoother across the board.",
     client: "Darren Lee",
     position: "Ops Manager | Bina Raya",
   },
@@ -80,117 +147,89 @@ const projects = [
 const processSteps = [
   {
     num: 1,
-    title: "Collaborative Discovery",
-    desc: "We align on goals via stakeholder interviews, a current‑state review, and measurable success criteria.",
+    title: "Discovery that listens",
+    desc: "We map goals, surface constraints, and agree on what good looks like quickly and honestly.",
     note: "Phase 1",
-    image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80&auto=format&fit=crop", // discovery session
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80&auto=format&fit=crop",
     features: ["Stakeholder interviews", "Current‑state review", "Goal mapping"],
     artifacts: ["Project brief", "Success metrics", "High‑level roadmap"],
     eta: "2–4 days",
   },
   {
     num: 2,
-    title: "Blueprint & Prototyping",
-    desc: "We ideate, wire, and validate with clickable prototypes so you can test the experience early and often.",
+    title: "Blueprint & Prototype",
+    desc: "Clickable flows, design tokens, and early feedback so decisions land before code grows.",
     note: "Phase 2",
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80&auto=format&fit=crop", // prototyping/whiteboard
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80&auto=format&fit=crop",
     features: ["Wireflows", "Design tokens", "Interactive prototype"],
     artifacts: ["Screen map", "Prototype link", "Scoped estimate"],
     eta: "3–7 days",
   },
   {
     num: 3,
-    title: "Agile Development",
-    desc: "We ship in tight iterations with weekly demos, a transparent backlog, and quality gates (reviews & tests).",
+    title: "Tight, visible delivery",
+    desc: "Short iterations, real demos, and quality gates with reviews, tests, and CI/CD from day one.",
     note: "Phase 3",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80&auto=format&fit=crop", // dev pairing
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80&auto=format&fit=crop",
     features: ["Weekly demos", "Quality gates", "CI/CD pipeline"],
     artifacts: ["Prioritised backlog", "Release plan", "Test coverage report"],
     eta: "2–6 weeks",
   },
   {
     num: 4,
-    title: "UAT & Launch",
-    desc: "We run UAT on staging, harden security, and execute a calm rollout with monitoring and a clear runbook.",
+    title: "UAT and calm launch",
+    desc: "Harden security, rehearse the runbook, and roll out with monitoring for a confident go‑live.",
     note: "Phase 4",
-    image:
-      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80&auto=format&fit=crop", // launch metaphor
+    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80&auto=format&fit=crop",
     features: ["Staging sign‑off", "Security hardening", "Rollout plan"],
     artifacts: ["Runbook", "Monitoring dashboards", "Go‑live checklist"],
     eta: "3–10 days",
   },
   {
     num: 5,
-    title: "Growth & Support",
-    desc: "Post‑launch we track success metrics, iterate against a roadmap, and support you under a clear SLA.",
+    title: "Growth that sticks",
+    desc: "Track the right numbers, iterate with intent, and support under a clear SLA/SLO.",
     note: "Phase 5",
-    image:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80&auto=format&fit=crop", // ongoing partnership
-    features: ["Post‑launch metrics", "Iteration roadmap", "Support SLA"],
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80&auto=format&fit=crop",
+    features: ["Post‑launch metrics", "Iteration roadmap", "Support SLA/SLO"],
     artifacts: ["KPI report", "Backlog v2", "Support plan"],
     eta: "Ongoing",
   },
 ];
 
-const faqs = [
-  {
-    q: "How long to launch a platform?",
-    a: "MVPs and landing pages can go live within days. Bespoke systems typically take 3–8 weeks with demos every sprint so you always see progress.",
-  },
-  {
-    q: "Can you modernise my legacy app?",
-    a: "Yes. We plan and execute upgrades or migrations to a modern Laravel/React stack—minimising risk and downtime while maximising impact.",
-  },
-  {
-    q: "Is support included after launch?",
-    a: "Yes. We offer flexible support plans for rapid fixes, iterative improvements, and monthly health checks under clear SLAs.",
-  },
-  {
-    q: "Do you cover design and branding?",
-    a: "We partner with specialists for UI/UX, branding, copy, and illustration—assembling the right team for your goals.",
-  },
-];
+const faqs = COPY.faq.items;
 
-const metrics = [
-  { label: "Years of Experience", value: 9 },
-  { label: "Clients Served", value: 500 },
-  { label: "Projects Delivered", value: 200 },
-  { label: "Industry Awards", value: 7 },
-];
+const metrics = COPY.metrics.items;
 
-// -------------------- SERVICES DATA & HELPERS -------------------- //
 const services = [
   {
     title: "Web Apps",
-    desc: "Secure, scalable platforms with Laravel + React (SPA/SSR), with auth, RBAC, and payments built‑in.",
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80&auto=format&fit=crop", // clean product/analytics desk
+    desc: "Robust web foundations that handle real traffic, built with Laravel, React, and real‑world use.",
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80&auto=format&fit=crop",
     category: "Web",
     features: ["SPA / SSR", "Auth & RBAC", "Payments"],
     Icon: Cpu,
   },
   {
     title: "Mobile Apps",
-    desc: "iOS & Android via React Native—single codebase, native feel, and fast store releases.",
-    img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80&auto=format&fit=crop", // mobile device hands-on
+    desc: "Feels built in, not bolted on. iOS and Android from a single codebase with React Native.",
+    img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80&auto=format&fit=crop",
     category: "Mobile",
     features: ["App Store / Play", "Push & Deep Links", "Offline Mode"],
     Icon: Smartphone,
   },
   {
     title: "Cloud & DevOps",
-    desc: "Deploy, scale, and observe on AWS using CI/CD, IaC, and sensible monitoring from day one.",
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80&auto=format&fit=crop", // code/server feel
+    desc: "Smooth rollouts and sharp visibility on AWS with CI/CD and sensible monitoring.",
+    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80&auto=format&fit=crop",
     category: "Cloud",
     features: ["CI/CD", "Autoscaling", "Observability"],
     Icon: Cloud,
   },
   {
     title: "Data & Dashboards",
-    desc: "Real‑time analytics and clean, actionable insights—so teams decide faster with confidence.",
-    img: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1600&q=80&auto=format&fit=crop", // charts/BI monitor
+    desc: "Live dashboards your team actually reads for faster and clearer decisions.",
+    img: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1600&q=80&auto=format&fit=crop",
     category: "Data",
     features: ["Realtime Charts", "Cohorts", "Exports"],
     Icon: BarChart3,
@@ -229,28 +268,13 @@ function serviceTone(cat: Exclude<ServiceCategory, "All">) {
   return map[cat];
 }
 
-// -------------------- ANIMATIONS -------------------- //
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
-};
-
-const rise = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
-};
-
+const fadeUp = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } };
+const rise = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.55 } } };
 const processItemVariants = {
   hidden: { opacity: 0, y: 50, scale: 0.96 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.55, delay: i * 0.08 },
-  }),
+  show: (i: number) => ({ opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, delay: i * 0.08 } }),
 } as const;
 
-// -------------------- LOCAL UI HELPERS -------------------- //
 function GlassButton(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const { className = "", ...rest } = props;
   return (
@@ -280,7 +304,6 @@ function Stars({ count = 5 }: { count?: number }) {
   );
 }
 
-// Decorative connector (curved arc) between alternating items
 function ConnectorArc({ right }: { right: boolean }) {
   return (
     <svg
@@ -307,12 +330,11 @@ function ConnectorArc({ right }: { right: boolean }) {
   );
 }
 
-// -------------------- PAGE -------------------- //
 export default function Home(): JSX.Element {
   const { t } = useTranslation();
   const [tabIdx, setTabIdx] = useState(0);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [tix, setTix] = useState(0); // testimonial index
+  const [tix, setTix] = useState(0);
   const [serviceFilter, setServiceFilter] = useState<ServiceCategory>("All");
 
   const heroText = useMemo(() => t(heroTabs[tabIdx].text), [tabIdx, t]);
@@ -326,25 +348,23 @@ export default function Home(): JSX.Element {
     <MainLayout
       headerProps={{
         sections: [
-          { name: t("About"), id: "about" },
-          { name: t("Projects"), id: "work" },
-          { name: t("Services"), id: "services" },
-          { name: t("Processes"), id: "processes" },
-          { name: t("Clients"), id: "clients" },
-          { name: t("Contact"), id: "contact" },
-          { name: t("FAQ"), id: "faq" },
+          { name: t(COPY.nav.about), id: "about" },
+          { name: t(COPY.nav.projects), id: "work" },
+          { name: t(COPY.nav.services), id: "services" },
+          { name: t(COPY.nav.processes), id: "processes" },
+          { name: t(COPY.nav.clients), id: "clients" },
+          { name: t(COPY.nav.contact), id: "contact" },
+          { name: t(COPY.nav.faq), id: "faq" },
         ],
       }}
     >
       <Head title="Home" />
-      {/* Global Background + moving blobs */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-[-12rem] h-[34rem] w-[54rem] -translate-x-1/2 rounded-full bg-gradient-to-b from-indigo-400/20 via-sky-400/15 to-fuchsia-400/10 blur-3xl animate-[floatY_8s_ease-in-out_infinite_alternate]" />
         <div className="absolute inset-0 bg-[radial-gradient(90rem_45rem_at_50%_-10%,rgba(255,255,255,0.08),transparent_60%)] dark:bg-[radial-gradient(90rem_45rem_at_50%_-10%,rgba(255,255,255,0.04),transparent_60%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-zinc-50/60 dark:from-zinc-900/40 to-transparent" />
       </div>
 
-      {/* HERO — Editorial collage + tab narrative */}
       <motion.section
         id="about"
         className="pb-12 md:pb-16 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 px-4 items-center"
@@ -356,10 +376,9 @@ export default function Home(): JSX.Element {
           </div>
 
           <h1 className="font-extrabold text-[2.35rem] leading-[1.05] md:text-[3.6rem] md:leading-[1.05] text-zinc-900 dark:text-white tracking-tight drop-shadow-sm text-center md:text-left">
-            {t("Software that moves your business forward.")}
+            {t(COPY.hero.headline)}
           </h1>
 
-          {/* Tabs */}
           <div className="flex flex-row flex-wrap justify-center md:justify-start gap-2 mt-6 mb-5">
             {heroTabs.map((tab, i) => (
               <button
@@ -377,7 +396,6 @@ export default function Home(): JSX.Element {
             ))}
           </div>
 
-          {/* Copy */}
           <AnimatePresence mode="wait">
             <motion.div
               key={tabIdx}
@@ -391,21 +409,19 @@ export default function Home(): JSX.Element {
             </motion.div>
           </AnimatePresence>
 
-          {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-3">
             <GlassButton className="text-center" href="#contact">
-              {t("Start a project")}
+              {t(COPY.hero.ctaPrimary)}
             </GlassButton>
             <a
               href="#work"
               className="text-center rounded-full px-6 py-3 font-semibold text-zinc-700 dark:text-zinc-200 ring-1 ring-zinc-300/70 dark:ring-zinc-700/70 hover:bg-zinc-50/60 dark:hover:bg-zinc-800/50 transition"
             >
-              {t("See our work")}
+              {t(COPY.hero.ctaSecondary)}
             </a>
           </div>
         </div>
 
-        {/* Editorial collage previews */}
         <div className="flex items-center justify-center">
           <div className="relative">
             <motion.figure
@@ -416,13 +432,13 @@ export default function Home(): JSX.Element {
             >
               <img
                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80&auto=format&fit=crop"
-                alt="Product design discussion in a modern Sydney workspace"
+                alt={t(COPY.hero.alt1)}
                 className="w-80 h-56 md:w-[24rem] md:h-64 rounded-3xl object-cover border border-zinc-200 dark:border-zinc-800 shadow-2xl"
                 loading="lazy"
                 decoding="async"
               />
               <figcaption className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 text-center">
-                {t("Design systems & dashboards")}
+                {t(COPY.hero.collageCaption1)}
               </figcaption>
             </motion.figure>
 
@@ -434,20 +450,19 @@ export default function Home(): JSX.Element {
             >
               <img
                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80&auto=format&fit=crop"
-                alt="Engineer reviewing dashboards and code across multiple screens"
+                alt={t(COPY.hero.alt2)}
                 className="w-64 h-44 md:w-80 md:h-56 rounded-3xl object-cover border border-zinc-200 dark:border-zinc-800 shadow-2xl"
                 loading="lazy"
                 decoding="async"
               />
               <figcaption className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 text-center">
-                {t("Mobile experiences")}
+                {t(COPY.hero.collageCaption2)}
               </figcaption>
             </motion.figure>
           </div>
         </div>
       </motion.section>
 
-      {/* Wave divider */}
       <div className="relative -mt-6 mb-10" aria-hidden>
         <svg viewBox="0 0 1440 110" className="w-full h-[70px] text-zinc-50 dark:text-zinc-900">
           <path
@@ -457,31 +472,28 @@ export default function Home(): JSX.Element {
         </svg>
       </div>
 
-      {/* CLIENTS marquee */}
       <section id="clients" className="pb-12 max-w-6xl mx-auto w-full px-4">
         <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 backdrop-blur p-4">
           <Brand logos={logos} speed={24} />
           <div className="text-xs mt-3 text-zinc-400 dark:text-zinc-500 font-medium text-center">
-            {t("Trusted by 500+ organisations and growing")}
+            {t(COPY.clients.strapline)}
           </div>
         </div>
       </section>
 
-      {/* SERVICES — Editorial Mosaic */}
       <section id="services" className="pb-28 w-full max-w-7xl mx-auto px-4">
         <div className="text-center mb-3">
           <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-300">
-            {t("Capabilities")}
+            {t(COPY.services.badge)}
           </div>
         </div>
         <h2 className="font-extrabold text-2xl md:text-3xl text-zinc-900 dark:text-white text-center tracking-tight">
-          {t("What We Do")}
+          {t(COPY.services.title)}
         </h2>
         <p className="max-w-2xl mx-auto text-center text-zinc-600 dark:text-zinc-300 mt-3 mb-8">
-          {t("From discovery to delivery, we craft elegant, scalable products that drive outcomes.")}
+          {t(COPY.services.blurb)}
         </p>
 
-        {/* Filters */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {(["All", "Web", "Mobile", "Cloud", "Data"] as ServiceCategory[]).map((cat) => (
             <button
@@ -499,7 +511,6 @@ export default function Home(): JSX.Element {
           ))}
         </div>
 
-        {/* Cards */}
         {(() => {
           const visible = services.filter((s) => serviceFilter === "All" || s.category === serviceFilter);
           return (
@@ -531,7 +542,7 @@ export default function Home(): JSX.Element {
                     </ul>
                     <div className="px-6 pb-6">
                       <a href="#contact" className={`inline-flex items-center gap-1 text-sm font-semibold ${tone.text} hover:underline`}>
-                        {t("Explore")}
+                        {t(COPY.services.explore)}
                         <ArrowRight className="w-4 h-4" />
                       </a>
                     </div>
@@ -543,13 +554,12 @@ export default function Home(): JSX.Element {
         })()}
       </section>
 
-      {/* WORK — mosaic */}
       <section id="work" className="pb-24 max-w-6xl mx-auto w-full px-4">
         <h2 className="font-bold text-2xl md:text-3xl mb-6 text-zinc-900 dark:text-white text-center">
-          {t("Our Work & Expertise")}
+          {t(COPY.work.title)}
         </h2>
         <p className="max-w-2xl mx-auto text-center text-zinc-600 dark:text-zinc-300 mb-12">
-          {t("Selected projects that showcase speed, polish, and measurable outcomes.")}
+          {t(COPY.work.blurb)}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-6 gap-5">
@@ -639,9 +649,9 @@ export default function Home(): JSX.Element {
             className="sm:col-span-3 rounded-3xl border border-dashed border-zinc-300 dark:border-zinc-700 p-6 flex items-center justify-center text-center"
           >
             <div>
-              <div className="text-sm uppercase tracking-wider text-zinc-400">{t("Have something in mind?")}</div>
+              <div className="text-sm uppercase tracking-wider text-zinc-400">{t(COPY.work.pitch)}</div>
               <GlassButton href="#contact" className="mt-2">
-                {t("Let’s talk")}
+                {t(COPY.work.pitchCta)}
               </GlassButton>
             </div>
           </motion.div>
@@ -660,7 +670,7 @@ export default function Home(): JSX.Element {
               >
                 <div className="text-[0.9rem] text-zinc-700 dark:text-zinc-300 mb-2 italic">“{t(projects[tix].review)}”</div>
                 <div className="text-xs text-zinc-400">
-                  {t(projects[tix].client)} — {t(projects[tix].position)}
+                  {t(projects[tix].client)} {" · "} {t(projects[tix].position)}
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -668,7 +678,6 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
-      {/* METRICS strip */}
       <section className="pb-12 max-w-5xl mx-auto w-full grid grid-cols-2 md:grid-cols-4 gap-6 text-center px-4">
         {metrics.map((m, i) => (
           <motion.div
@@ -687,22 +696,20 @@ export default function Home(): JSX.Element {
         ))}
       </section>
 
-      {/* OUR PROCESS — Flow Bands */}
       <section id="processes" className="relative pb-32 max-w-6xl mx-auto w-full px-4">
         <div className="text-center mb-3">
           <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-300">
-            {t("How we work")}
+            {t(COPY.process.badge)}
           </div>
         </div>
         <h2 className="font-extrabold text-2xl md:text-3xl text-zinc-900 dark:text-white text-center tracking-tight">
-          {t("Our Process")}
+          {t(COPY.process.title)}
         </h2>
         <p className="max-w-2xl mx-auto text-center text-zinc-600 dark:text-zinc-300 mt-3 mb-16">
-          {t("A transparent path from idea to launch—measurable steps, continuous feedback.")}
+          {t(COPY.process.blurb)}
         </p>
 
         <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-[3px] rounded bg-gradient-to-b from-indigo-300 via-sky-400 to-cyan-400 opacity-40" />
-
         <ol className="relative grid gap-16 md:gap-20">
           {processSteps.map((s, i) => {
             const right = i % 2 === 1;
@@ -718,23 +725,9 @@ export default function Home(): JSX.Element {
               "border-fuchsia-200 dark:border-fuchsia-900",
             ][i % 3];
             const chip = ["bg-indigo-600", "bg-sky-600", "bg-fuchsia-600"][i % 3];
-            const toneGrad = [
-              "from-indigo-500 to-indigo-400",
-              "from-sky-500 to-sky-400",
-              "from-fuchsia-500 to-fuchsia-400",
-            ][i % 3];
+            const toneGrad = ["from-indigo-500 to-indigo-400", "from-sky-500 to-sky-400", "from-fuchsia-500 to-fuchsia-400"][i % 3];
             const rotBase = [-1.5, 0, 1.5][i % 3];
             const WatermarkIcon = [Users, Pencil, Code2, ShieldCheck, Rocket][i % 5];
-            const highlightChip = ["bg-indigo-600", "bg-sky-600", "bg-fuchsia-600"][i % 3];
-
-            const progressLabels = [
-              t("Discovery"),
-              t("Blueprint"),
-              t("Development"),
-              t("UAT & Launch"),
-              t("Growth"),
-            ];
-
             const badgeLabels = s.features?.slice(0, 2) ?? s.artifacts?.slice(0, 2) ?? [];
 
             return (
@@ -747,11 +740,9 @@ export default function Home(): JSX.Element {
                 viewport={{ once: true, margin: "-80px" }}
                 className={`relative grid items-stretch gap-6 md:gap-10 ${right ? "md:grid-cols-[1.1fr_.9fr]" : "md:grid-cols-[.9fr_1.1fr]"}`}
               >
-                {/* timeline node */}
                 <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white dark:bg-zinc-900 ring-2 ring-sky-400/70 shadow" />
                 <ConnectorArc right={right} />
 
-                {/* Text Card */}
                 <div className={`${right ? "" : "order-2"} flex`}>
                   <div className={`relative w-full ${shape} border ${tone} shadow-xl overflow-hidden`}>
                     <div className={`absolute inset-x-0 -top-px h-[3px] bg-gradient-to-r ${toneGrad}`} />
@@ -766,7 +757,6 @@ export default function Home(): JSX.Element {
                       <h3 className="text-2xl md:text-[1.7rem] font-bold text-zinc-900 dark:text-white leading-tight">{t(s.title)}</h3>
                       <p className="mt-2 text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">{t(s.desc)}</p>
 
-                      {/* feature pills */}
                       {s.features && (
                         <ul className="mt-4 flex flex-wrap gap-2">
                           {s.features.map((f) => (
@@ -781,7 +771,6 @@ export default function Home(): JSX.Element {
                         </ul>
                       )}
 
-                      {/* meta chips */}
                       <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                         {s.eta && (
                           <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 ring-1 ring-zinc-300/70 dark:ring-zinc-700/70">
@@ -798,7 +787,6 @@ export default function Home(): JSX.Element {
                   </div>
                 </div>
 
-                {/* Image Card */}
                 <div className={`${right ? "order-2" : ""} relative group`}>
                   <motion.div
                     initial={{ rotate: rotBase }}
@@ -833,10 +821,9 @@ export default function Home(): JSX.Element {
         </ol>
       </section>
 
-      {/* FAQ */}
       <section id="faq" className="pb-20 max-w-3xl mx-auto w-full px-4">
         <h2 className="font-bold text-2xl md:text-3xl mb-10 text-zinc-900 dark:text-white text-center">
-          {t("Frequently Asked Questions")}
+          {t(COPY.faq.title)}
         </h2>
         <div className="space-y-4">
           {faqs.map((f, i) => (
@@ -881,33 +868,31 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
-      {/* CONTACT / CTA */}
       <section id="contact" className="pb-28 max-w-3xl mx-auto w-full px-4">
         <div className="rounded-3xl bg-gradient-to-r from-indigo-600 via-sky-600 to-fuchsia-600 border-none px-6 md:px-10 py-12 md:py-16 flex flex-col items-center text-center">
-          <h2 className="font-extrabold text-3xl md:text-4xl mb-4 text-white drop-shadow">{t("Ready to get started?")}</h2>
+          <h2 className="font-extrabold text-3xl md:text-4xl mb-4 text-white drop-shadow">{t(COPY.contact.title)}</h2>
           <div className="text-base md:text-lg text-white/90 mb-8 max-w-xl">
-            {t("Book a free consultation and let’s discuss your goals, timelines, and the fastest path to value.")}
+            {t(COPY.contact.blurb)}
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="mailto:admin@telp.com.au"
+              href={`mailto:${COPY.contact.email}`}
               className="bg-white text-indigo-600 font-semibold rounded-full px-7 py-3 shadow-none hover:scale-105 transition-all text-base"
               style={{ minWidth: 160, textAlign: "center" }}
             >
-              {t("Email Us")}
+              {t(COPY.contact.emailBtn)}
             </a>
             <a
               href="#about"
               className="rounded-full px-7 py-3 font-semibold text-white/90 ring-1 ring-white/40 hover:bg-white/10 transition-all"
               style={{ minWidth: 160, textAlign: "center" }}
             >
-              {t("Back to Top")}
+              {t(COPY.contact.backTop)}
             </a>
           </div>
         </div>
       </section>
 
-      {/* Minor local styles */}
       <style>{`
         body { overflow-x: hidden !important; }
         .animate-float { animation: floatY 3s ease-in-out infinite alternate; }

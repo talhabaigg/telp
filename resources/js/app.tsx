@@ -11,7 +11,7 @@ createInertiaApp (
 {
     title: (
         title
-    ) => `Telp - Custom Enterprise Solution - ${title}`,
+    ) => `Telp | Custom Enterprise Solution | ${title}`,
 
     id: "app",
 
