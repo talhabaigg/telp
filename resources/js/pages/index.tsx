@@ -26,8 +26,8 @@ const COPY = {
     services: "Services",
     processes: "Processes",
     clients: "Clients",
-    contact: "Contact",
-    faq: "FAQ",
+    contact: "Contacts",
+    faq: "Asks and Questions",
   },
   brandTagline: "Engineering practical software tailored to how your business actually works.",
   hero: {

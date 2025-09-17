@@ -300,7 +300,7 @@ export default function Career(): JSX.Element {
                   href={`mailto:admin@telp.com.au?subject=${encodeURIComponent("Apply: " + r.title)}`}
                   className="inline-flex items-center gap-2 rounded-full px-4 py-2 font-semibold bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
                 >
-                  {t("Apply now")} <ArrowRight className="w-4 h-4" />
+                  {t("Apply")} <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
                   href="#career-teams"
